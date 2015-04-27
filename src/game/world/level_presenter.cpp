@@ -220,6 +220,10 @@ void gorc::game::world::level_presenter::translate_camera(const vector<3>& amt) 
     auto& player = model->get_thing(model->local_player_thing_id);
     player.thrust = player.orient.transform(amt);
 
+    if(player.physics_flags & flags::physics_flag::is_crouching) {
+        player.thrust *= 0.5f;
+    }
+
     // TODO: Handle this in character controller or in physics presenter.
     get<2>(player.thrust) = 0.0f;
 }
