@@ -1,5 +1,6 @@
 #include "vfssingleton.h"
 #include <boost/format.hpp>
+#include <iostream>
 
 VfsSingleton VfsSingleton::inst;
 
